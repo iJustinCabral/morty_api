@@ -8,14 +8,63 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var vm = CharacterViewModel(service: CharacterService())
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            switch vm.state {
+            case .success(let data):
+                List {
+                    ForEach(data, id: \.id) { item in
+                        NavigationLink(value: item) {
+                            HStack {
+                                AsyncImage(url: URL(string: item.image)) { phase in
+                                    if let image = phase.image {
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                    }
+                                }
+                                .scaledToFill()
+                                .frame(width: 60, height: 60)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                VStack(alignment: .leading) {
+                                    Text(item.name)
+                                        .fontWeight(.black)
+                                    Text(item.status)
+                                        .font(.caption)
+                                        .fontWeight(.light)
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                .navigationTitle("Characters")
+            case .loading:
+                ProgressView()
+            default:
+                EmptyView()
+            }
         }
-        .padding()
+        .task {
+            await vm.getCharacters()
+        }
+        .alert("Error", isPresented: $vm.hasError, presenting: vm.state) { detail in
+            Button("Retry") {
+                Task {
+                    await vm.getCharacters()
+                }
+            }
+        } message: { detail in
+            if case let .failed(error) = detail {
+                Text(error.localizedDescription)
+            }
+        }
+        .navigationDestination(for: Character.self) { character in
+            Text(character.name)
+        }
     }
 }
 
