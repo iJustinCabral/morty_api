@@ -14,6 +14,7 @@
 		E308799C295B4BBA004ACB83 /* CharacterServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308799B295B4BBA004ACB83 /* CharacterServiceResult.swift */; };
 		E308799F295B4C2D004ACB83 /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308799E295B4C2D004ACB83 /* CharacterService.swift */; };
 		E30879A2295B5023004ACB83 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30879A1295B5023004ACB83 /* CharacterViewModel.swift */; };
+		E30879A4295B5C2D004ACB83 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30879A3295B5C2D004ACB83 /* CharacterDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		E308799B295B4BBA004ACB83 /* CharacterServiceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterServiceResult.swift; sourceTree = "<group>"; };
 		E308799E295B4C2D004ACB83 /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		E30879A1295B5023004ACB83 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		E30879A3295B5C2D004ACB83 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				E308799A295B4BA7004ACB83 /* Model */,
 				E308798C295B4B5B004ACB83 /* RickAndMortyAPIApp.swift */,
 				E308798E295B4B5B004ACB83 /* ContentView.swift */,
+				E30879A3295B5C2D004ACB83 /* CharacterDetailView.swift */,
 				E3087990295B4B5C004ACB83 /* Assets.xcassets */,
 				E3087992295B4B5C004ACB83 /* Preview Content */,
 			);
@@ -173,6 +176,7 @@
 				E308798F295B4B5B004ACB83 /* ContentView.swift in Sources */,
 				E30879A2295B5023004ACB83 /* CharacterViewModel.swift in Sources */,
 				E308799C295B4BBA004ACB83 /* CharacterServiceResult.swift in Sources */,
+				E30879A4295B5C2D004ACB83 /* CharacterDetailView.swift in Sources */,
 				E308798D295B4B5B004ACB83 /* RickAndMortyAPIApp.swift in Sources */,
 				E308799F295B4C2D004ACB83 /* CharacterService.swift in Sources */,
 			);

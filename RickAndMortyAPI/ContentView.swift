@@ -17,7 +17,9 @@ struct ContentView: View {
             case .success(let data):
                 List {
                     ForEach(data, id: \.id) { item in
-                        NavigationLink(value: item) {
+                        NavigationLink {
+                            CharacterDetailView(character: item)
+                        } label: {
                             HStack {
                                 AsyncImage(url: URL(string: item.image)) { phase in
                                     if let image = phase.image {
@@ -26,9 +28,9 @@ struct ContentView: View {
                                             .scaledToFit()
                                     }
                                 }
-                                .scaledToFill()
                                 .frame(width: 60, height: 60)
                                 .clipShape(RoundedRectangle(cornerRadius: 8))
+                                
                                 VStack(alignment: .leading) {
                                     Text(item.name)
                                         .fontWeight(.black)
@@ -61,9 +63,6 @@ struct ContentView: View {
             if case let .failed(error) = detail {
                 Text(error.localizedDescription)
             }
-        }
-        .navigationDestination(for: Character.self) { character in
-            Text(character.name)
         }
     }
 }
